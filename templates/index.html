@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RoChat</title>
+</head>
+<body>
+<h2>RoChat</h2>
+
+<form action="/send" method="post">
+    <input type="text" name="name" placeholder="Enter your name" required><br><br>
+    <input type="text" name="text" placeholder="Enter your message" required><br><br>
+    <button type="submit">Send</button>
+</form>
+
+<form action="/clear" method="post">
+    <button type="submit">Clear chat</button>
+</form>
+<hr>
+
+<h3>Messages:</h3>
+{% for msg in messages%}
+    <p>• {{msg["name"]}}: {{msg["message"]}} | {{msg["time"]}}</p>
+{% endfor %}
+</body>
+</html>
